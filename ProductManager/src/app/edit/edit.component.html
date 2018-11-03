@@ -1,0 +1,55 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+    <style>
+      #wrapper {
+        background-color: lightgrey;
+        height: 450px;
+      }
+      #main {
+        margin: 20px;
+        margin-left: 400px;
+        padding: 20px;
+        padding-left: 50px;
+        width: 400px;
+        background-color: rgb(194, 133, 206);
+        border-radius: 10px;
+      }
+      button {
+        margin-top: 5px;
+      }
+      #main input [type = "text"] {
+        width: 70%;
+        border-radius: 5px;
+      }
+      ul {
+        padding-left: 0;
+        margin-left: 0;
+      }
+      li {
+        list-style-type: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id = "wrapper">
+      <div id = "main">
+        <form (submit) = "editProduct()">
+          <ul *ngIf = "error" style = "color:rgb(177, 61, 61);">
+            <li *ngFor = "let m of data">
+              {{m.name}}{{m.price}}
+            </li>
+          </ul>
+          Name: <br>
+          <input type = "text" name = "editform.name" [(ngModel)] = "editform.name" /><br>
+          Price: <br>
+          <input type = "number" name = "editform.price" [(ngModel)] = "editform.price" /><br>
+          Image URL: <br>
+          <input type = "text" name = "editform.image" [(ngModel)] = "editform.image" /><br><br>
+          <input class = "btn btn-primary" type = "submit" value = "Edit Product"/>
+        </form>
+        <button class = "btn btn-dark" (click) = "deleteProduct()">Delete Product</button>
+      </div>
+    </div>
+  </body>

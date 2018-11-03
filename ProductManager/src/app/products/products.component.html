@@ -1,0 +1,46 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+    <base href = "/">
+    <style>
+      #wrapper {
+        background-color: lightgrey;
+      }
+      #main {
+        margin-left: 200px;
+        width: 1200px;
+      }
+      #product {
+        background-color: rgb(173, 191, 230);
+        width: 330px;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 5px;
+        padding: 20px;
+        border-radius: 5px;
+      }
+      img {
+        width: 250px;
+      }
+      button {
+        display: inline-block;
+        margin: 10px;
+        margin-left: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id = "wrapper">
+      <div id = "main">
+        <h2>Products List</h2><br>
+        <div id = "product" *ngFor = "let p of products">
+          <img src = "{{p.image}}">
+          <h4>{{p.name}}</h4>
+          <h4>${{p.price}}</h4>
+          <button class = "btn btn-primary" (click) = "editRedirect(p)">Edit</button>
+          <button class = "btn btn-dark" (click) = "deleteProduct(p)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </body>
